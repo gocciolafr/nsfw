@@ -70,15 +70,11 @@
 
         // Aggiungi l'evento al pulsante
         playButton.addEventListener('click', () => {
-            // Nasconde il contenuto della pagina
-            document.body.innerHTML = "";
-
             // Mostra la GIF e avvia l'audio
-            document.body.appendChild(gifContainer);
+            audio.play().catch(error => {
+                console.error('Errore durante la riproduzione dell\'audio:', error);
+            });
             gifContainer.style.display = 'flex';
-            audio.play();
-            
-            // Avvia l'effetto di dissolvenza
             gif.style.opacity = 1;
         });
     </script>
