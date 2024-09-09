@@ -7,25 +7,36 @@
         body {
             margin: 0;
             font-family: helvetica, sans-serif;
-            text-align: center;
             background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             overflow: hidden;
         }
 
+        /* Contenitore principale */
+        .container {
+            text-align: center;
+            width: 90vw; /* 90% della larghezza della viewport */
+            max-width: 600px; /* Larghezza massima */
+        }
+
         h1 {
-            font-size: 1.5em; /* Grandezza del testo per dispositivi grandi */
+            font-size: 6vw; /* Grandezza del testo relativa alla larghezza della viewport */
         }
 
         p {
-            font-size: 1em; /* Grandezza del testo per dispositivi grandi */
+            font-size: 4vw; /* Grandezza del testo relativa alla larghezza della viewport */
+            line-height: 1.5;
         }
 
         /* Stili per il pulsante */
         button {
             display: block;
             margin: 20px auto;
-            padding: 10px 20px;
-            font-size: 1em;
+            padding: 1em 2em;
+            font-size: 2vw; /* Grandezza del testo relativa alla larghezza della viewport */
             cursor: pointer;
             background-color: #007bff;
             color: white;
@@ -58,31 +69,17 @@
             opacity: 0; /* Inizia con opacità 0 per il fade-in */
             transition: opacity 5s ease-in; /* Effetto di dissolvenza */
         }
-
-        /* Media query per dispositivi mobili */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2em; /* Ridurre la grandezza del testo per schermi piccoli */
-            }
-
-            p {
-                font-size: 1.2em; /* Ridurre la grandezza del testo per schermi piccoli */
-            }
-
-            button {
-                padding: 10px 15px;
-                font-size: 0.9em;
-            }
-        }
     </style>
 </head>
 <body>
-    <h1>Attenzione!</h1>
-    <p>Cliccando su <b>Continua</b> inizierai a visualizzare un'immagine animata e a sentire una canzone che potrebbe non essere adatta a tutti.</p>
-    <p><b>Sei sicuro di voler continuare?</b></p>
-    
-    <!-- Bottone per far partire la GIF e la canzone -->
-    <button id="playButton">Continua</button>
+    <div class="container">
+        <h1>Attenzione!</h1>
+        <p>Cliccando su <b>Continua</b> inizierai a visualizzare un'immagine animata e a sentire una canzone che potrebbe non essere adatta a tutti.</p>
+        <p><b>Sei sicuro di voler continuare?</b></p>
+        
+        <!-- Bottone per far partire la GIF e la canzone -->
+        <button id="playButton">Continua</button>
+    </div>
 
     <!-- Contenitore della GIF -->
     <div id="gifContainer">
