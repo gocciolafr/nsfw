@@ -23,8 +23,8 @@
             cursor: pointer;
         }
 
-        /* Stili per il video popup */
-        #videoContainer {
+        /* Stili per la GIF popup */
+        #gifContainer {
             display: none;
             position: fixed;
             top: 0;
@@ -37,7 +37,7 @@
             z-index: 1000;
         }
 
-        #videoContainer video {
+        #gifContainer img {
             width: 80%;
             height: auto;
         }
@@ -45,38 +45,39 @@
 </head>
 <body>
     <h1>Attenzione!</h1>
-    <p>Cliccando su <b>Continua</b> inizierai a guardare un video che non è adatto a minori e potrebbe dare fastidio a persone sensibili.</p>
+    <p>Cliccando su <b>Continua</b> inizierai a visualizzare un'immagine animata e a sentire una canzone che potrebbe non essere adatta a tutti.</p>
     <p><b>Sei sicuro di voler continuare?</b></p>
     
-    <!-- Bottone per far partire il video -->
+    <!-- Bottone per far partire la GIF e la canzone -->
     <button id="playButton">Continua</button>
 
-    <!-- Contenitore del video -->
-    <div id="videoContainer">
-        <video id="video" autoplay>
-            <source src="-8574294536113555760.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+    <!-- Contenitore della GIF -->
+    <div id="gifContainer">
+        <img id="gif" src="pesce.gif" alt="Pesce Animato">
     </div>
+
+    <!-- Audio -->
+    <audio id="audio" src="canzone.mp3" preload="auto"></audio>
 
     <script>
         // Elementi del DOM
         const playButton = document.getElementById('playButton');
-        const videoContainer = document.getElementById('videoContainer');
-        const video = document.getElementById('video');
+        const gifContainer = document.getElementById('gifContainer');
+        const audio = document.getElementById('audio');
 
         // Aggiungi l'evento al pulsante
         playButton.addEventListener('click', () => {
             // Nasconde il contenuto della pagina
             document.body.innerHTML = "";
 
-            // Imposta un ritardo di 5 secondi prima di avviare il video
+            // Imposta un ritardo di 5 secondi prima di mostrare la GIF e avviare l'audio
             setTimeout(() => {
-                // Mostra il video al centro dello schermo
-                document.body.appendChild(videoContainer);
-                videoContainer.style.display = 'flex';
-                video.play();  // Avvia il video
-                video.controls = false; // Disabilita i controlli del video
+                // Mostra la GIF al centro dello schermo
+                document.body.appendChild(gifContainer);
+                gifContainer.style.display = 'flex';
+                
+                // Riproduce l'audio
+                audio.play();
             }, 5000); // Ritardo di 5000 millisecondi (5 secondi)
         });
     </script>
