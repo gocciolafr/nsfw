@@ -23,7 +23,7 @@
             cursor: pointer;
         }
 
-        /* Stili per la GIF popup */
+        /* Stili per la GIF con effetto di dissolvenza */
         #gifContainer {
             display: none;
             position: fixed;
@@ -40,6 +40,8 @@
         #gifContainer img {
             width: 80%;
             height: auto;
+            opacity: 0; /* Inizia con opacità 0 per il fade-in */
+            transition: opacity 5s ease-in; /* Effetto di dissolvenza */
         }
     </style>
 </head>
@@ -63,6 +65,7 @@
         // Elementi del DOM
         const playButton = document.getElementById('playButton');
         const gifContainer = document.getElementById('gifContainer');
+        const gif = document.getElementById('gif');
         const audio = document.getElementById('audio');
 
         // Aggiungi l'evento al pulsante
@@ -70,15 +73,13 @@
             // Nasconde il contenuto della pagina
             document.body.innerHTML = "";
 
-            // Imposta un ritardo di 5 secondi prima di mostrare la GIF e avviare l'audio
-            setTimeout(() => {
-                // Mostra la GIF al centro dello schermo
-                document.body.appendChild(gifContainer);
-                gifContainer.style.display = 'flex';
-                
-                // Riproduce l'audio
-                audio.play();
-            }, 5000); // Ritardo di 5000 millisecondi (5 secondi)
+            // Mostra la GIF e avvia l'audio
+            document.body.appendChild(gifContainer);
+            gifContainer.style.display = 'flex';
+            audio.play();
+            
+            // Avvia l'effetto di dissolvenza
+            gif.style.opacity = 1;
         });
     </script>
 </body>
