@@ -12,7 +12,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            overflow: hidden;
+            overflow: auto; /* Assicura che il contenuto non impedisca lo scrolling */
         }
 
         /* Contenitore principale */
@@ -20,23 +20,26 @@
             text-align: center;
             width: 90vw; /* 90% della larghezza della viewport */
             max-width: 600px; /* Larghezza massima */
+            padding: 1em; /* Padding per evitare che il testo tocchi i bordi */
         }
 
         h1 {
-            font-size: 6vw; /* Grandezza del testo relativa alla larghezza della viewport */
+            font-size: 2.5rem; /* Grandezza del testo con unità rem */
+            margin: 0.5em 0; /* Margini per separare il titolo dal testo */
         }
 
         p {
-            font-size: 4vw; /* Grandezza del testo relativa alla larghezza della viewport */
+            font-size: 1.2rem; /* Grandezza del testo con unità rem */
             line-height: 1.5;
+            margin: 0.5em 0; /* Margini per separare i paragrafi */
         }
 
         /* Stili per il pulsante */
         button {
             display: block;
-            margin: 20px auto;
-            padding: 1em 2em;
-            font-size: 2vw; /* Grandezza del testo relativa alla larghezza della viewport */
+            margin: 1em auto;
+            padding: 0.8em 2em;
+            font-size: 1rem; /* Grandezza del testo con unità rem */
             cursor: pointer;
             background-color: #007bff;
             color: white;
