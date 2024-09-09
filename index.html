@@ -3,15 +3,21 @@
 <head>
     <title>NSFW</title>
     <style>
-        /* Stili per l'intestazione e il paragrafo */
-        h1 {
-            font-family: helvetica;
+        /* Stili generali per il corpo e il testo */
+        body {
+            margin: 0;
+            font-family: helvetica, sans-serif;
             text-align: center;
+            background-color: #f4f4f4;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 1.5em; /* Grandezza del testo per dispositivi grandi */
         }
 
         p {
-            font-family: helvetica;
-            text-align: center;
+            font-size: 1em; /* Grandezza del testo per dispositivi grandi */
         }
 
         /* Stili per il pulsante */
@@ -19,8 +25,17 @@
             display: block;
             margin: 20px auto;
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 1em;
             cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
         }
 
         /* Stili per la GIF con effetto di dissolvenza */
@@ -43,11 +58,27 @@
             opacity: 0; /* Inizia con opacità 0 per il fade-in */
             transition: opacity 5s ease-in; /* Effetto di dissolvenza */
         }
+
+        /* Media query per dispositivi mobili */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em; /* Ridurre la grandezza del testo per schermi piccoli */
+            }
+
+            p {
+                font-size: 1.2em; /* Ridurre la grandezza del testo per schermi piccoli */
+            }
+
+            button {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+        }
     </style>
 </head>
 <body>
     <h1>Attenzione!</h1>
-    <p>Cliccando su <b>Continua</b> inizierai a visualizzare un video non adatto ai minori e che potrebbe non essere adatta a persone sensibili.</p>
+    <p>Cliccando su <b>Continua</b> inizierai a visualizzare un'immagine animata e a sentire una canzone che potrebbe non essere adatta a tutti.</p>
     <p><b>Sei sicuro di voler continuare?</b></p>
     
     <!-- Bottone per far partire la GIF e la canzone -->
@@ -71,11 +102,11 @@
         // Aggiungi l'evento al pulsante
         playButton.addEventListener('click', () => {
             // Mostra la GIF e avvia l'audio
+            gifContainer.style.display = 'flex';
+            gif.style.opacity = 1;
             audio.play().catch(error => {
                 console.error('Errore durante la riproduzione dell\'audio:', error);
             });
-            gifContainer.style.display = 'flex';
-            gif.style.opacity = 1;
         });
     </script>
 </body>
