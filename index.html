@@ -24,7 +24,7 @@
         }
 
         h1 {
-            font-size: 7rem; /* Grandezza del testo con unità rem */
+            font-size: 10rem; /* Grandezza del testo con unità rem */
             margin: 0.5em 0; /* Margini per separare il titolo dal testo */
         }
 
@@ -108,11 +108,11 @@
         // Aggiungi l'evento al pulsante
         playButton.addEventListener('click', () => {
             // Mostra la GIF e avvia l'audio
-            gifContainer.style.display = 'flex';
-            gif.style.opacity = 1;
             audio.play().catch(error => {
                 console.error('Errore durante la riproduzione dell\'audio:', error);
             });
+            gifContainer.style.display = 'flex';
+            gif.style.opacity = 1;
         });
     </script>
 </body>
